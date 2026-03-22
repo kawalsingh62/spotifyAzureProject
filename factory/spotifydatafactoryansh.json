@@ -1,0 +1,9 @@
+{
+	"name": "spotifydatafactoryansh",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4f5d8063-2968-44bc-9852-e939cc665da3",
+		"tenantId": "7ef93bc7-325f-456e-9cea-0fe27517c75d"
+	}
+}
