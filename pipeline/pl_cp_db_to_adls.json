@@ -337,7 +337,7 @@
 						"schema": "dbo",
 						"table": "DimUser",
 						"cdc_col": "updated_at",
-						"update_from": "2024-01-02"
+						"update_from": ""
 					},
 					{
 						"schema": "dbo",
