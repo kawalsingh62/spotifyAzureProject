@@ -1,0 +1,9 @@
+{
+	"name": "spotifysadf",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6bdde24b-12fd-4647-b970-bde246cf96d4",
+		"tenantId": "f7ce079c-3cec-4f29-813e-1dd43b788fb7"
+	}
+}
