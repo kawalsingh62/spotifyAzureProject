@@ -417,9 +417,6 @@
 			}
 		},
 		"variables": {
-			"curretn_date": {
-				"type": "String"
-			},
 			"current_date": {
 				"type": "String"
 			}
