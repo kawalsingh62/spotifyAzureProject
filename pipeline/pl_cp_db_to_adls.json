@@ -78,13 +78,12 @@
 									"referenceName": "ds_adls_parquet",
 									"type": "DatasetReference",
 									"parameters": {
-										"Pqt_directory": "bronze",
-										"pqt_folder": {
-											"value": "@item().table",
+										"target_folder": {
+											"value": "@{item().table}_cdc",
 											"type": "Expression"
 										},
-										"pqt_file": {
-											"value": "@concat(item().schema,'.',item().table,'_',variables('current_date'))",
+										"target_file": {
+											"value": "@{item().table}",
 											"type": "Expression"
 										}
 									}
@@ -178,18 +177,6 @@
 										},
 										"userProperties": [],
 										"typeProperties": {
-											"dataset": {
-												"referenceName": "ds_adls_parquet",
-												"type": "DatasetReference",
-												"parameters": {
-													"Pqt_directory": "bronze",
-													"pqt_folder": {
-														"value": "@item().table",
-														"type": "Expression"
-													},
-													"pqt_file": "@concat(item().schema,'.',item().table,'_',variables('curretn_date'))"
-												}
-											},
 											"enableLogging": false,
 											"storeSettings": {
 												"type": "AzureBlobFSReadSettings",
