@@ -83,7 +83,7 @@
 											"type": "Expression"
 										},
 										"target_file": {
-											"value": "@{item().table}",
+											"value": "@concat(item().table,'_',variables('current_date'))",
 											"type": "Expression"
 										}
 									}
@@ -177,6 +177,20 @@
 										},
 										"userProperties": [],
 										"typeProperties": {
+											"dataset": {
+												"referenceName": "ds_adls_parquet",
+												"type": "DatasetReference",
+												"parameters": {
+													"target_folder": {
+														"value": "@{item().table}_cdc",
+														"type": "Expression"
+													},
+													"target_file": {
+														"value": "@concat(item().table,'_',variables('current_date'))",
+														"type": "Expression"
+													}
+												}
+											},
 											"enableLogging": false,
 											"storeSettings": {
 												"type": "AzureBlobFSReadSettings",
