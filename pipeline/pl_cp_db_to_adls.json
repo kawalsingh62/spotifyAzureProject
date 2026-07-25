@@ -70,7 +70,13 @@
 							"inputs": [
 								{
 									"referenceName": "ds_sql_db",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"ds_table": {
+											"value": "@item().table",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
@@ -252,7 +258,10 @@
 												"additionalColumns": [
 													{
 														"name": "cdc",
-														"value": "@activity('lastDate').output.resultSets[0].rows[0].cdc"
+														"value": {
+															"value": "@activity('lastDate').output.resultSets[0].rows[0].cdc",
+															"type": "Expression"
+														}
 													}
 												],
 												"storeSettings": {
