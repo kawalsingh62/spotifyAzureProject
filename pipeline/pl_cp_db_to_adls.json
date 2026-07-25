@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
+				"name": "ForEachFile",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
@@ -320,6 +320,62 @@
 							}
 						}
 					]
+				}
+			},
+			{
+				"name": "SuccessAlert",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "ForEachFile",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-10.northcentralus.logic.azure.com:443/workflows/be39165e3157487aa5ca7a8bbc2d65e2/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=iKiEKaK422ftRWh_Iw4Y4bfe_ZQklRimjhHYfRnauPM",
+					"body": {
+						"value": "{\n    \"pipeline_name\" : \"@{pipeline().Pipeline}\",\n    \"pipeline_runid\" : \"@{pipeline().RunId}\",\n    \"status\" : \"Success\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "FailureAlert",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "ForEachFile",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-10.northcentralus.logic.azure.com:443/workflows/be39165e3157487aa5ca7a8bbc2d65e2/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=iKiEKaK422ftRWh_Iw4Y4bfe_ZQklRimjhHYfRnauPM",
+					"body": {
+						"value": "{\n    \"pipeline_name\" : \"@{pipeline().Pipeline}\",\n    \"pipeline_runid\" : \"@{pipeline().RunId}\",\n    \"ActivityName\" : \"ForEachFile\",\n    \"ErrorCode\" : \"@{activity('cp_db_to_adls').error.errorcode}\",\n    \"ErrorMessage\" : \"@{activity('cp_db_to_adls').error.message}\",\n    \"status\" : \"Failure\"\n}",
+						"type": "Expression"
+					}
 				}
 			}
 		],
