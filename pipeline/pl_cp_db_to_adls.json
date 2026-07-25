@@ -370,7 +370,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"method": "POST",
-					"url": "https://prod-17.northcentralus.logic.azure.com:443/workflows/3823c72e76444b0b81b90b9f5b2e0798/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=p-pDQ1ZWy0UDmDA4HzjrKa6I195bV_zN1TLr7J3IyW0",
+					"url": "https://prod-10.northcentralus.logic.azure.com:443/workflows/be39165e3157487aa5ca7a8bbc2d65e2/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=iKiEKaK422ftRWh_Iw4Y4bfe_ZQklRimjhHYfRnauPM",
 					"body": {
 						"value": "{\n    \"Pipeline_Name\" : \"@{pipeline().Pipeline}\",\n    \"Pipeline_RunId\" : \"@{pipeline().RunId}\",\n    \"Status\" : \"Success\"\n}",
 						"type": "Expression"
