@@ -124,8 +124,11 @@
 									"referenceName": "ds_adls_json",
 									"type": "DatasetReference",
 									"parameters": {
-										"json_folder": "bronze",
-										"json_directory": "cdc",
+										"json_folder": {
+											"value": "@{item().table}_cdc",
+											"type": "Expression"
+										},
+										"json_directory": "bronze",
 										"json_file": "cdc.json"
 									}
 								},
