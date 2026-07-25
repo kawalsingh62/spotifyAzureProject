@@ -53,43 +53,32 @@
 									}
 								},
 								"enableStaging": false
-							}
-						},
-						{
-							"name": "emptyJson",
-							"type": "Copy",
-							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
 							},
-							"userProperties": [],
-							"typeProperties": {
-								"source": {
-									"type": "JsonSource",
-									"storeSettings": {
-										"type": "AzureBlobFSReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
-									},
-									"formatSettings": {
-										"type": "JsonReadSettings"
+							"inputs": [
+								{
+									"referenceName": "ds_adls_json",
+									"type": "DatasetReference",
+									"parameters": {
+										"json_folder": "json",
+										"json_directory": "bronze",
+										"json_file": "empty.json"
 									}
-								},
-								"sink": {
-									"type": "JsonSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "JsonWriteSettings"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ds_adls_json",
+									"type": "DatasetReference",
+									"parameters": {
+										"json_folder": {
+											"value": "@{item().table}_cdc",
+											"type": "Expression"
+										},
+										"json_directory": "bronze",
+										"json_file": "cdc.json"
 									}
-								},
-								"enableStaging": false
-							}
+								}
+							]
 						}
 					]
 				}
