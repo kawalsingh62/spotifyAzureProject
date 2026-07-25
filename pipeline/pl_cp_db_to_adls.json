@@ -114,6 +114,15 @@
 										"type": "JsonReadSettings"
 									}
 								},
+								"dataset": {
+									"referenceName": "ds_adls_json",
+									"type": "DatasetReference",
+									"parameters": {
+										"json_folder": "bronze",
+										"json_directory": "cdc",
+										"json_file": "cdc.json"
+									}
+								},
 								"firstRowOnly": false
 							}
 						},
