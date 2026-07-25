@@ -53,32 +53,7 @@
 									}
 								},
 								"enableStaging": false
-							},
-							"inputs": [
-								{
-									"referenceName": "ds_adls_json",
-									"type": "DatasetReference",
-									"parameters": {
-										"json_directory": "bronze",
-										"json_folder": {
-											"value": "json",
-											"type": "Expression"
-										},
-										"json_file": "empty.json"
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "ds_adls_json",
-									"type": "DatasetReference",
-									"parameters": {
-										"json_directory": "bronze",
-										"json_folder": "@{item().table}_cdc",
-										"json_file": "cdc.json"
-									}
-								}
-							]
+							}
 						},
 						{
 							"name": "emptyJson",
@@ -114,32 +89,7 @@
 									}
 								},
 								"enableStaging": false
-							},
-							"inputs": [
-								{
-									"referenceName": "ds_adls_json",
-									"type": "DatasetReference",
-									"parameters": {
-										"json_directory": "bronze",
-										"json_folder": "json",
-										"json_file": "empty.json"
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "ds_adls_json",
-									"type": "DatasetReference",
-									"parameters": {
-										"json_directory": "bronze",
-										"json_folder": {
-											"value": "@{item().table}_cdc",
-											"type": "Expression"
-										},
-										"json_file": "empty.json"
-									}
-								}
-							]
+							}
 						}
 					]
 				}
